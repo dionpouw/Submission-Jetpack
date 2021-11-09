@@ -7,8 +7,9 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
-import com.aldion.jetpackprosubmission1.ui.home.HomeActivity
-import com.aldion.jetpackprosubmission1.utils.DataDummy
+import com.aldion.movieshowsapp.R
+import com.aldion.movieshowsapp.ui.home.HomeActivity
+import com.aldion.movieshowsapp.utils.DataDummy
 import org.junit.Rule
 import org.junit.Test
 

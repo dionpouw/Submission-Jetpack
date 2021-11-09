@@ -1,5 +1,6 @@
-package com.aldion.jetpackprosubmission1.ui.movieshows
+package com.aldion.movieshowsapp
 
+import com.aldion.movieshowsapp.ui.movieshows.MoviesShowsViewModel
 import org.junit.Assert.*
 
 import org.junit.Before

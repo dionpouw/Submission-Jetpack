@@ -3,6 +3,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.aldion.movieshowsapp.databinding.ItemShowBinding
+import com.aldion.movieshowsapp.ui.detail.DetailShowActivity
 import com.bumptech.glide.Glide
 
 class MoviesShowsAdapter : RecyclerView.Adapter<MoviesShowsAdapter.MovieShowViewHolder>() {
