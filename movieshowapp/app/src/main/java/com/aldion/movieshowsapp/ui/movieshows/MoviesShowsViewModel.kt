@@ -2,7 +2,7 @@ package com.aldion.movieshowsapp.ui.movieshows
 
 import ShowEntity
 import androidx.lifecycle.ViewModel
-import com.aldion.jetpackprosubmission1.utils.DataDummy
+import com.aldion.movieshowsapp.utils.DataDummy
 
 class MoviesShowsViewModel : ViewModel() {
 

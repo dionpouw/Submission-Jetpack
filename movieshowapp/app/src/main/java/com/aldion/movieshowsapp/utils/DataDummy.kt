@@ -1,7 +1,7 @@
-package com.aldion.jetpackprosubmission1.utils
+package com.aldion.movieshowsapp.utils
 
-import com.aldion.jetpackprosubmission1.R
-import com.aldion.jetpackprosubmission1.ui.data.ShowEntity
+import ShowEntity
+import com.aldion.movieshowsapp.R
 
 object DataDummy {
 
