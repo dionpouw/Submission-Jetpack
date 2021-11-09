@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Movie-Tv Shows App</string>
+    <string name="imageShow">Image Show</string>
+    <string name="user_review">User Review</string>
+    <string name="description">Description</string>
+    <string name="actors">Actors</string>
+    <string name="title_show">Title show</string>
+    <string name="user_review_number">user review number</string>
+    <string name="actors_name">TextView</string>
+    <string name="tab_text_1">Movies</string>
+    <string name="tab_text_2">TV Shows</string>
+    <string name="year">Year</string>
+    <string name="image">Image</string>
+</resources>
