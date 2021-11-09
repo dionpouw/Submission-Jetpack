@@ -1,10 +1,9 @@
 package com.aldion.movieshowsapp.ui.home
 
 import SectionsPagerAdapter
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.annotation.StringRes
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.viewpager2.widget.ViewPager2
 import com.aldion.movieshowsapp.R
 import com.aldion.movieshowsapp.databinding.ActivityHomeBinding
@@ -16,7 +15,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
-        installSplashScreen()
+        //installSplashScreen()
         setContentView(binding.root)
 
         val sectionsPagerAdapter = SectionsPagerAdapter(this)
