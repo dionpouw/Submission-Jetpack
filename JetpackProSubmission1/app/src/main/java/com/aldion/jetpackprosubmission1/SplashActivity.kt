@@ -12,8 +12,8 @@ import kotlinx.coroutines.runBlocking
 class SplashActivity : AppCompatActivity() {
     private var binding: ActivitySplashBinding? = null
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
+        super.onCreate(savedInstanceState)
         setContentView(binding?.root)
 
         runBlocking {
