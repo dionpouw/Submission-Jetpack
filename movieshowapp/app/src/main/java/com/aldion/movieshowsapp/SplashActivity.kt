@@ -5,29 +5,32 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.aldion.movieshowsapp.databinding.ActivitySplashBinding
 import com.aldion.movieshowsapp.ui.home.HomeActivity
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 
 class SplashActivity : AppCompatActivity() {
-    private var binding: ActivitySplashBinding? = null
+    private lateinit var binding: ActivitySplashBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
-        setContentView(binding?.root)
+        setContentView(binding.root)
+        withCoroutine(2000L)
+    }
 
-        runBlocking {
-            launch {
-                delay(2000L)
-                val intent = Intent(this@SplashActivity,HomeActivity::class.java)
-                startActivity(intent)
-                finish()
+    private fun withCoroutine(delay: Long) {
+        val mScope: CoroutineScope = CoroutineScope(Dispatchers.IO)
+        mScope.launch {
+            delay(delay)
+            withContext(Dispatchers.Main) {
+                launchPostSplashActivity()
+                mScope.cancel(null)
             }
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        binding = null
+    private fun launchPostSplashActivity() {
+        // launch another activity
+        val intent = Intent(this@SplashActivity, HomeActivity::class.java)
+        startActivity(intent)
+        finish() // necessary because we do not want user to come back to this activity
     }
 }
