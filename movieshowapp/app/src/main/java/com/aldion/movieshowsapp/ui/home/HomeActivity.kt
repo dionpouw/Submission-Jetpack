@@ -15,7 +15,6 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
-        //installSplashScreen()
         setContentView(binding.root)
 
         val sectionsPagerAdapter = SectionsPagerAdapter(this)
