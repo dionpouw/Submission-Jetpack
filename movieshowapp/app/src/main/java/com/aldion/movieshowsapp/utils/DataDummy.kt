@@ -10,6 +10,8 @@ object DataDummy {
 
         films.add(
             ShowEntity(
+                "Movie1",
+                "Movie",
                 "A Star Is Born",
                 "2018",
                 "Drama, Romance, Music",
@@ -22,6 +24,7 @@ object DataDummy {
 
         films.add(
             ShowEntity(
+                "Movie2", "Movie",
                 "Alita: Battle Angel",
                 "2019",
                 "Action, Science Fiction, Adventure",
@@ -34,6 +37,7 @@ object DataDummy {
 
         films.add(
             ShowEntity(
+                "Movie3", "Movie",
                 "Aquaman",
                 "2018",
                 "Action, Adventure, Fantasy",
@@ -46,6 +50,7 @@ object DataDummy {
 
         films.add(
             ShowEntity(
+                "Movie4", "Movie",
                 "Bohemian Rhapsody",
                 "2018",
                 "Music, Drama, History",
@@ -57,6 +62,7 @@ object DataDummy {
         )
         films.add(
             ShowEntity(
+                "Movie5", "Movie",
                 "Creed II",
                 "2018",
                 "Drama",
@@ -68,6 +74,7 @@ object DataDummy {
         )
         films.add(
             ShowEntity(
+                "Movie6", "Movie",
                 "How to Train Your Dragon: The Hidden World",
                 "2019",
                 "Animation, Family, Adventure",
@@ -80,6 +87,7 @@ object DataDummy {
 
         films.add(
             ShowEntity(
+                "Movie7", "Movie",
                 "Avengers: Infinity War",
                 "2018",
                 "Adventure, Action, Science Fiction",
@@ -92,6 +100,7 @@ object DataDummy {
 
         films.add(
             ShowEntity(
+                "Movie8", "Movie",
                 "Cold Pursuit",
                 "2019",
                 "Action, Crime, Thriller",
@@ -104,6 +113,7 @@ object DataDummy {
 
         films.add(
             ShowEntity(
+                "Movie9", "Movie",
                 "T-34",
                 "2018",
                 "War, Action, Drama, History",
@@ -116,6 +126,7 @@ object DataDummy {
 
         films.add(
             ShowEntity(
+                "Movie10", "Movie",
                 "Spider-Man: Into the Spider-Verse",
                 "2018",
                 "Action, Adventure, Animation, Sci-Fi, Comedy",
@@ -133,6 +144,7 @@ object DataDummy {
 
         shows.add(
             ShowEntity(
+                "Tv1", "Shows",
                 "Arrow",
                 "2012",
                 "Crime, Drama, Mystery, Action & Adventure",
@@ -145,6 +157,7 @@ object DataDummy {
 
         shows.add(
             ShowEntity(
+                "Tv2", "Shows",
                 "Dragon Ball",
                 "1986",
                 "Animation, Action & Adventure, Sci-Fi & Fantasy",
@@ -157,6 +170,7 @@ object DataDummy {
 
         shows.add(
             ShowEntity(
+                "Tv3", "Shows",
                 "Fairy Tail",
                 "2009",
                 "Action & Adventure, Animation, Comedy, Sci-Fi & Fantasy, Mystery",
@@ -169,6 +183,7 @@ object DataDummy {
 
         shows.add(
             ShowEntity(
+                "Tv4", "Shows",
                 "Family Guy",
                 "1999",
                 "Animation, Comedy",
@@ -180,6 +195,7 @@ object DataDummy {
         )
         shows.add(
             ShowEntity(
+                "Tv5", "Shows",
                 "The Flash",
                 "2014",
                 "Drama, Sci-Fi & Fantasy",
@@ -193,6 +209,7 @@ object DataDummy {
 
         shows.add(
             ShowEntity(
+                "Tv6", "Shows",
                 "Game of Thrones",
                 "2011",
                 "Sci-Fi & Fantasy, Drama, Action & Adventure",
@@ -205,6 +222,7 @@ object DataDummy {
 
         shows.add(
             ShowEntity(
+                "Tv7", "Shows",
                 "Marvel's Iron Fist",
                 "2017",
                 "Action & Adventure, Drama, Sci-Fi & Fantasy",
@@ -217,6 +235,7 @@ object DataDummy {
 
         shows.add(
             ShowEntity(
+                "Tv8", "Shows",
                 "Naruto Shippūden",
                 "2007",
                 "Animation, Action & Adventure, Sci-Fi & Fantasy",
@@ -229,6 +248,7 @@ object DataDummy {
 
         shows.add(
             ShowEntity(
+                "Tv9", "Shows",
                 "Supergirl",
                 "2015",
                 "Drama, Sci-Fi & Fantasy, Action & Adventure",
@@ -241,6 +261,7 @@ object DataDummy {
 
         shows.add(
             ShowEntity(
+                "Tv10", "Shows",
                 "Supernatural",
                 "2005",
                 "Drama, Mystery, Sci-Fi & Fantasy",
@@ -250,7 +271,6 @@ object DataDummy {
                 R.drawable.poster_supernatural
             )
         )
-
         return shows
     }
 }
