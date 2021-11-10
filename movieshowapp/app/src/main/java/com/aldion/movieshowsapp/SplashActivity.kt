@@ -17,7 +17,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun withCoroutine(delay: Long) {
-        val mScope: CoroutineScope = CoroutineScope(Dispatchers.IO)
+        val mScope = CoroutineScope(Dispatchers.IO)
         mScope.launch {
             delay(delay)
             withContext(Dispatchers.Main) {

@@ -6,7 +6,7 @@ import com.aldion.movieshowsapp.utils.DataDummy
 
 class DetailShowViewModel : ViewModel() {
 
-    private lateinit var movieShow: ShowEntity
+    lateinit var movieShow: ShowEntity
 
     fun setMovieShows(id: String,category: String): ShowEntity {
         when(category){
