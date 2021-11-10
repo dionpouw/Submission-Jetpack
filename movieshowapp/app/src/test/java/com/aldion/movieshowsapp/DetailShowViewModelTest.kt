@@ -24,6 +24,7 @@ class DetailShowViewModelTest {
         val movieShow = viewModel.movieShow
         assertNotNull(movieShow)
         assertEquals(dummyFilm.id, movieShow.id)
+        assertEquals(dummyFilm.category, movieShow.category)
         assertEquals(dummyFilm.title, movieShow.title)
         assertEquals(dummyFilm.imagePath, movieShow.imagePath)
         assertEquals(dummyFilm.year, movieShow.year)
@@ -39,6 +40,7 @@ class DetailShowViewModelTest {
         val tvShow = viewModel.movieShow
         assertNotNull(tvShow)
         assertEquals(dummyShows.id, tvShow.id)
+        assertEquals(dummyShows.category, tvShow.category)
         assertEquals(dummyShows.title, tvShow.title)
         assertEquals(dummyShows.imagePath, tvShow.imagePath)
         assertEquals(dummyShows.year, tvShow.year)
