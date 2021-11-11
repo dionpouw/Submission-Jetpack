@@ -1,10 +1,11 @@
+package com.aldion.movieshowsapp.data.source.local.entity
+
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class ShowEntity(
     var id:String,
-    var category:String,
     var title: String,
     var year: String,
     var genre: String,
