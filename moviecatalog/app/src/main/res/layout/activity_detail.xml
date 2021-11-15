@@ -11,7 +11,7 @@
         android:layout_width="135dp"
         android:layout_height="200dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:contentDescription="@string/image"
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/nunito"
         android:text="@string/title_show"
         android:textSize="24sp"
@@ -43,28 +43,14 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
     <TextView
-        android:id="@+id/tv_genre"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="@font/nunito"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tv_title"
-        app:layout_constraintTop_toBottomOf="@+id/tv_year"
-        tools:text="Genre" />
-
-    <TextView
         android:id="@+id/tv_user_review"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:fontFamily="@font/nunito"
         android:text="@string/user_review"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/tv_genre"
-        app:layout_constraintTop_toBottomOf="@+id/tv_genre" />
+        app:layout_constraintStart_toStartOf="@+id/tv_year"
+        app:layout_constraintTop_toBottomOf="@+id/tv_year" />
 
     <TextView
         android:id="@+id/tv_user_review_number"
@@ -79,31 +65,6 @@
         tools:text="7.5" />
 
     <TextView
-        android:id="@+id/tv_actor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:textStyle="bold"
-        android:fontFamily="@font/nunito"
-        android:text="@string/actors"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/img_poster"
-        app:layout_constraintTop_toBottomOf="@+id/img_poster" />
-
-    <TextView
-        android:id="@+id/tv_list_actor"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:fontFamily="@font/nunito"
-        android:text="@string/actors_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tv_actor"
-        app:layout_constraintTop_toBottomOf="@+id/tv_actor"
-        tools:text="Andrew Garfield, Thom hanks" />
-
-    <TextView
         android:id="@+id/tv_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -112,8 +73,8 @@
         android:fontFamily="@font/nunito"
         android:text="@string/description"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/tv_list_actor"
-        app:layout_constraintTop_toBottomOf="@+id/tv_list_actor" />
+        app:layout_constraintStart_toStartOf="@+id/img_poster"
+        app:layout_constraintTop_toBottomOf="@+id/img_poster" />
 
     <TextView
         android:id="@+id/tv_description_content"

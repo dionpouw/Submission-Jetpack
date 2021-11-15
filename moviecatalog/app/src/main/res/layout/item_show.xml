@@ -40,7 +40,7 @@
             tools:text="Narnia : Prince Caspian" />
 
         <TextView
-            android:id="@+id/tv_item_genre"
+            android:id="@+id/tv_item_release_date"
             style="@style/body_rv_item"
             android:layout_width="0dp"
             android:maxLines="2"
