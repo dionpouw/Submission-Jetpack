@@ -1,17 +1,14 @@
-package com.aldion.moviecatalog.data
+package com.aldion.moviecatalog.data.source.local.entity
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class ShowEntity(
-    var id:String,
-    var category:String,
+    val id: Int,
     var title: String,
-    var year: String,
-    var genre: String,
-    var actor: String,
-    var userRating: String,
-    var description: String,
-    var imagePath: Int
+    val releaseDate: String,
+    var voteAverage: Double,
+    var overview: String,
+    var posterPath: String,
 ) : Parcelable
