@@ -3,7 +3,7 @@ package com.aldion.moviecatalog.ui.detail
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.aldion.moviecatalog.data.ShowEntity
+import com.aldion.moviecatalog.data.source.local.entity.ShowEntity
 import com.aldion.moviecatalog.databinding.ActivityDetailBinding
 import com.bumptech.glide.Glide
 
@@ -22,16 +22,14 @@ class DetailActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
         if (movieShow != null) {
-            val moviesShows = viewModel.setMovieShows(movieShow.id, movieShow.category)
+            val moviesShows = viewModel.setMovieShows(movieShow.id)
             binding.apply {
-                Glide.with(this@DetailActivity).load(moviesShows.imagePath).thumbnail(0.9f)
+                Glide.with(this@DetailActivity).load("https://image.tmdb.org/t/p/w500/${moviesShows.posterPath}").thumbnail(0.9f)
                     .into(imgPoster)
                 tvTitle.text = moviesShows.title
-                tvGenre.text = moviesShows.genre
-                tvYear.text = moviesShows.year
-                tvUserReviewNumber.text = moviesShows.userRating
-                tvListActor.text = moviesShows.actor
-                tvDescriptionContent.text = moviesShows.description
+                tvYear.text = moviesShows.releaseDate
+                tvUserReviewNumber.text = moviesShows.voteAverage.toString()
+                tvDescriptionContent.text = moviesShows.overview
             }
         }
         supportActionBar?.elevation = 0f

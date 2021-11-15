@@ -56,10 +56,6 @@ class MoviesShowsFragment : Fragment() {
         this.contextThis = null
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
 
     companion object {
         private const val ARG_SECTION_NUMBER =

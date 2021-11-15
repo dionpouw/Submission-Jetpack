@@ -4,7 +4,8 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.aldion.moviecatalog.data.ShowEntity
+import com.aldion.moviecatalog.R
+import com.aldion.moviecatalog.data.source.local.entity.ShowEntity
 import com.aldion.moviecatalog.databinding.ItemShowBinding
 import com.aldion.moviecatalog.ui.detail.DetailActivity
 import com.bumptech.glide.Glide
@@ -29,13 +30,15 @@ class MoviesShowsAdapter : RecyclerView.Adapter<MoviesShowsAdapter.MovieShowView
         fun bind(moviesShows: ShowEntity) {
             with(binding) {
                 tvNameShow.text = moviesShows.title
-                tvItemGenre.text = moviesShows.genre
+                tvItemReleaseDate.text = moviesShows.releaseDate
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailActivity::class.java)
                     intent.putExtra(DetailActivity.EXTRA_SHOWS, moviesShows)
                     itemView.context.startActivity(intent)
                 }
-                Glide.with(itemView.context).load(moviesShows.imagePath).into(imageView)
+                Glide.with(itemView.context)
+                    .load("https://image.tmdb.org/t/p/w500${moviesShows.posterPath}")
+                    .override(66, 100).error(R.drawable.poster_alita).into(imageView)
             }
         }
     }
