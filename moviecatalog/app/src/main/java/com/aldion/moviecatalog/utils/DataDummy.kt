@@ -1,276 +1,198 @@
 package com.aldion.moviecatalog.utils
 
-import com.aldion.moviecatalog.R
-import com.aldion.moviecatalog.data.ShowEntity
+import com.aldion.moviecatalog.data.source.local.entity.ShowEntity
 
 object DataDummy {
 
     fun generateDummyFilms(): List<ShowEntity> {
         val films = ArrayList<ShowEntity>()
 
-        films.add(
-            ShowEntity(
-                "Movie1",
-                "Movie",
-                "A Star Is Born",
-                "2018",
-                "Drama, Romance, Music",
-                "Bradley Cooper, Lady Gaga, Sam Elliot, Andrew Dice Clay, Rafi Gavron, Anthony Ramos",
-                "75%",
-                "Seasoned musician Jackson Maine discovers — and falls in love with — struggling artist Ally. She has just about given up on her dream to make it big as a singer — until Jack coaxes her into the spotlight. But even as Ally's career takes off, the personal side of their relationship is breaking down, as Jack fights an ongoing battle with his own internal demons.",
-                R.drawable.poster_a_start_is_born
-            )
-        )
+        films.add(ShowEntity(
+            566525,
+            "Shang-Chi and the Legend of the Ten Rings",
+            "2021-09-01",
+            7.9,
+            "Shang-Chi must confront the past he thought he left behind when he is drawn into the web of the mysterious Ten Rings organization.",
+            "/1BIoJGKbXjdFDAqUEiA2VHqkK1Z.jpg"
+        ))
 
-        films.add(
-            ShowEntity(
-                "Movie2", "Movie",
-                "Alita: Battle Angel",
-                "2019",
-                "Action, Science Fiction, Adventure",
-                "Rosa Salazar, Christoph Waltz, Jennifer Connelly, Mahershala Ali, Ed Skrein, Jackie Earle Haley",
-                "72%",
-                "When Alita awakens with no memory of who she is in a future world she does not recognize, she is taken in by Ido, a compassionate doctor who realizes that somewhere in this abandoned cyborg shell is the heart and soul of a young woman with an extraordinary past.",
-                R.drawable.poster_alita
-            )
-        )
+        films.add(ShowEntity(
+            580489,
+            "Venom: Let There Be Carnage",
+            "2021-09-30",
+            6.8,
+            "After finding a host body in investigative reporter Eddie Brock, the alien symbiote must face a new enemy, Carnage, the alter ego of serial killer Cletus Kasady.",
+            "/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg"
+        ))
 
-        films.add(
-            ShowEntity(
-                "Movie3", "Movie",
-                "Aquaman",
-                "2018",
-                "Action, Adventure, Fantasy",
-                "Jason Momoa, Amber Heard, Willem Dafoe, Patrick Wilson, Nicole Kidman, Dolph Lundgren, Yahya Abdul-Mateen II",
-                "69%",
-                "Once home to the most advanced civilization on Earth, Atlantis is now an underwater kingdom ruled by the power-hungry King Orm. With a vast army at his disposal, Orm plans to conquer the remaining oceanic people and then the surface world. Standing in his way is Arthur Curry, Orm's half-human, half-Atlantean brother and true heir to the throne.",
-                R.drawable.poster_aquaman
-            )
-        )
+        films.add(ShowEntity(
+            524434,
+            "Eternals",
+            "2021-11-03",
+            7.1,
+            "The Eternals are a team of ancient aliens who have been living on Earth in secret for thousands of years. When an unexpected tragedy forces them out of the shadows, they are forced to reunite against mankind’s most ancient enemy, the Deviants.",
+            "/6AdXwFTRTAzggD2QUTt5B7JFGKL.jpg"
+        ))
 
-        films.add(
-            ShowEntity(
-                "Movie4", "Movie",
-                "Bohemian Rhapsody",
-                "2018",
-                "Music, Drama, History",
-                "Rami Malek, Gwilym Lee, Ben Hardy, Joseph Mazzello, Lucy Boynton, Aidan Gillen, Allen Leech, Tom Hollander",
-                "80%",
-                "Singer Freddie Mercury, guitarist Brian May, drummer Roger Taylor and bass guitarist John Deacon take the music world by storm when they form the rock 'n' roll band Queen in 1970. Hit songs become instant classics. When Mercury's increasingly wild lifestyle starts to spiral out of control, Queen soon faces its greatest challenge yet – finding a way to keep the band together amid the success and excess.",
-                R.drawable.poster_bohemian
-            )
-        )
-        films.add(
-            ShowEntity(
-                "Movie5", "Movie",
-                "Creed II",
-                "2018",
-                "Drama",
-                "Michael B. Jordan, Sylvester Stallone, Dolph Lundgren, Florian Munteanu, Tessa Thompson, Wood Harris, Phylicia Rashād",
-                "69%",
-                "Between personal obligations and training for his next big fight against an opponent with ties to his family's past, Adonis Creed is up against the challenge of his life.",
-                R.drawable.poster_creed
-            )
-        )
-        films.add(
-            ShowEntity(
-                "Movie6", "Movie",
-                "How to Train Your Dragon: The Hidden World",
-                "2019",
-                "Animation, Family, Adventure",
-                "Jay Baruchel, America Ferrera, F. Murray Abraham, Cate Blanchett, Gerrad Butler, Craig Ferguson, Jonah Hill",
-                "78%",
-                "As Hiccup fulfills his dream of creating a peaceful dragon utopia, Toothless’ discovery of an untamed, elusive mate draws the Night Fury away. When danger mounts at home and Hiccup’s reign as village chief is tested, both dragon and rider must make impossible decisions to save their kind.",
-                R.drawable.poster_how_to_train
-            )
-        )
+        films.add(ShowEntity(
+            796499,
+            "Army of Thieves",
+            "2021-10-27",
+            6.9,
+            "A mysterious woman recruits bank teller Ludwig Dieter to lead a group of aspiring thieves on a top-secret heist during the early stages of the zombie apocalypse.",
+            "/5YCg0PFnGxDKb24Lmhxz8p4Q8j1.jpg"
+        ))
 
-        films.add(
-            ShowEntity(
-                "Movie7", "Movie",
-                "Avengers: Infinity War",
-                "2018",
-                "Adventure, Action, Science Fiction",
-                "Robert Downey Jr., Chris Hemsworth, Mark Ruffalo, Chris Evans, Scarlett Johansson, Benedict Cumberbatch, Tom Holland, Chadwick Boseman ",
-                "83%",
-                "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.",
-                R.drawable.poster_infinity_war
-            )
-        )
+        films.add(ShowEntity(
+            370172,
+            "No Time to Die",
+            "2021-09-29",
+            7.5,
+            "Bond has left active service and is enjoying a tranquil life in Jamaica. His peace is short-lived when his old friend Felix Leiter from the CIA turns up asking for help. The mission to rescue a kidnapped scientist turns out to be far more treacherous than expected, leading Bond onto the trail of a mysterious villain armed with dangerous new technology.",
+            "/iUgygt3fscRoKWCV1d0C7FbM9TP.jpg"
+        ))
 
-        films.add(
-            ShowEntity(
-                "Movie8", "Movie",
-                "Cold Pursuit",
-                "2019",
-                "Action, Crime, Thriller",
-                "Liam Neeson, Laura Dern, Emmy Rossum, Michael Eklund,Micheál Richardson,Bradley Stryker, Tom Bateman",
-                "57%",
-                "The quiet family life of Nels Coxman, a snowplow driver, is upended after his son's murder. Nels begins a vengeful hunt for Viking, the drug lord he holds responsible for the killing, eliminating Viking's associates one by one. As Nels draws closer to Viking, his actions bring even more unexpected and violent consequences, as he proves that revenge is all in the execution.",
-                R.drawable.poster_cold_persuit
-            )
-        )
+        films.add(ShowEntity(
+            522402,
+            "Finch",
+            "2021-11-04",
+            8.1,
+            "On a post-apocalyptic Earth, a robot, built to protect the life of his dying creator's beloved dog, learns about life, love, friendship, and what it means to be human.",
+            "/jKuDyqx7jrjiR9cDzB5pxzhJAdv.jpg"
+        ))
 
-        films.add(
-            ShowEntity(
-                "Movie9", "Movie",
-                "T-34",
-                "2018",
-                "War, Action, Drama, History",
-                "Alexander Petrov, Victor Dobronravov, Irina Starshenbaum, Vinzenz Kiefer, Petr Skvortsov, Semyon Treskunov",
-                "70%",
-                "In 1944, a courageous group of Russian soldiers managed to escape from German captivity in a half-destroyed legendary T-34 tank. Those were the times of unforgettable bravery, fierce fighting, unbreakable love, and legendary miracles.",
-                R.drawable.poster_t34
-            )
-        )
+        films.add(ShowEntity(
+            744275,
+            "After We Fell",
+            "2021-09-01",
+            7.3,
+            "Just as Tessa's life begins to become unglued, nothing is what she thought it would be. Not her friends nor her family. The only person that she should be able to rely on is Hardin, who is furious when he discovers the massive secret that she's been keeping. Before Tessa makes the biggest decision of her life, everything changes because of revelations about her family.",
+            "/suN9WacmM6TIUOuYonHc1iL7uRw.jpg"
+        ))
 
-        films.add(
-            ShowEntity(
-                "Movie10", "Movie",
-                "Spider-Man: Into the Spider-Verse",
-                "2018",
-                "Action, Adventure, Animation, Sci-Fi, Comedy",
-                "Shameik Moore, Jake Johnson, Hailee Steinfeld, Mahershala Ali, Brian Tyree Henry, Lily Tomlin, Lauren Vélez",
-                "84%",
-                "Miles Morales is juggling his life between being a high school student and being a spider-man. When Wilson \"Kingpin\" Fisk uses a super collider, others from across the Spider-Verse are transported to this dimension.",
-                R.drawable.poster_spiderman
-            )
-        )
+        films.add(ShowEntity(
+            550988,
+            "Free Guy",
+            "2021-08-11",
+            7.8,
+            "A bank teller called Guy realizes he is a background character in an open world video game called Free City that will soon go offline.",
+            "/xmbU4JTUm8rsdtn7Y3Fcm30GpeT.jpg",
+        ))
+
+        films.add(ShowEntity(
+            763164,
+            "Apex",
+            "2021-11-12",
+            5.8,
+            "Ex-cop James Malone is serving a life sentence for a crime he didn’t commit. He is offered a chance at freedom if he can survive a deadly game of Apex, in which six hunters pay for the pleasure of hunting another human on a remote island. He accepts, and once he arrives, all hell breaks loose.",
+            "/cobRV6hAj8h7dRU4WZ3dkGaRQv2.jpg"
+        ))
+
+        films.add(ShowEntity(
+            843241,
+            "The Seven Deadly Sins: Cursed by Light",
+            "2021-07-02",
+            8.2,
+            "With the help of the \"Dragon Sin of Wrath\" Meliodas and the worst rebels in history, the Seven Deadly Sins, the \"Holy War\", in which four races, including Humans, Goddesses, Fairies and Giants fought against the Demons, is finally over. At the cost of the \"Lion Sin of Pride\" Escanor's life, the Demon King was defeated and the world regained peace. After that, each of the Sins take their own path.",
+            "/k0ThmZQl5nHe4JefC2bXjqtgYp0.jpg"
+        ))
+
         return films
     }
 
     fun generateDummyTvShows(): List<ShowEntity> {
         val shows = ArrayList<ShowEntity>()
 
-        shows.add(
-            ShowEntity(
-                "Tv1", "Shows",
-                "Arrow",
-                "2012",
-                "Crime, Drama, Mystery, Action & Adventure",
-                "Stephen Amell, David Ramsey, Emily Bett, Katie Cassidy, Paul Blackthorne, Willa Holland, Rick Gonzalez",
-                "67%",
-                "Spoiled billionaire playboy Oliver Queen is missing and presumed dead when his yacht is lost at sea. He returns five years later a changed man, determined to clean up the city as a hooded vigilante armed with a bow.",
-                R.drawable.poster_arrow
-            )
-        )
+        shows.add(ShowEntity(
+            93405,
+            "Squid Game",
+            "2021-09-17",
+            7.8,
+            "Hundreds of cash-strapped players accept a strange invitation to compete in children's games—with high stakes. But, a tempting prize awaits the victor.",
+            "/dDlEmu3EZ0Pgg93K2SVNLCjCSvE.jpg"
+        ))
 
-        shows.add(
-            ShowEntity(
-                "Tv2", "Shows",
-                "Dragon Ball",
-                "1986",
-                "Animation, Action & Adventure, Sci-Fi & Fantasy",
-                "Masako Nozawa, Mayumi Tanaka, Hiromi Tsuru, Toru Furuya, Naoki Tatsuta, Naoko Watanabe, Mami Koyama",
-                "82%",
-                "Long ago in the mountains, a fighting master known as Gohan discovered a strange boy whom he named Goku. Gohan raised him and trained Goku in martial arts until he died. The young and very strong boy was on his own, but easily managed. Then one day, Goku met a teenage girl named Bulma, whose search for the mystical Dragon Balls brought her to Goku's home. Together, they set off to find all seven and to grant her wish.",
-                R.drawable.poster_dragon_ball
-            )
-        )
+        shows.add(ShowEntity(
+            113901,
+            "Maradona: Blessed Dream",
+            "2021-10-29",
+            7.7,
+            "The controversial life and history of Argentine football legend Diego Armando Maradona. From his beginnings in Villa Fiorito, one of the poorest barrios of Buenos Aires, to achieving glory on the international football league. Earning himself a well-deserved place in history. Living a life strewn with drugs, sex and public scrutiny, he played by his own rules regardless of the consequences. Watch the man who took the world by storm and made his way into the hearts of millions.",
+            "/mGPdWEEmfzP7VQBQsXrFt1b1ikQ.jpg"
+        ))
 
-        shows.add(
-            ShowEntity(
-                "Tv3", "Shows",
-                "Fairy Tail",
-                "2009",
-                "Action & Adventure, Animation, Comedy, Sci-Fi & Fantasy, Mystery",
-                "Yoshimitsu Shimoyama, Eiji Miyashita, Fuyuka Ono, Daisuke Namikawa, Masafumi Kimura,Eri Kitamura",
-                "78%",
-                "Lucy is a 17-year-old girl, who wants to be a full-fledged mage. One day when visiting Harujion Town, she meets Natsu, a young man who gets sick easily by any type of transportation. But Natsu isn't just any ordinary kid, he's a member of one of the world's most infamous mage guilds: Fairy Tail.",
-                R.drawable.poster_fairytail
-            )
-        )
+        shows.add(ShowEntity(
+            94605,
+            "Arcane",
+            "2021-11-06",
+            9.3,
+            "Amid the stark discord of twin cities Piltover and Zaun, two sisters fight on rival sides of a war between magic technologies and clashing convictions.",
+            "/fqldf2t8ztc9aiwn3k6mlX3tvRT.jpg"
+        ))
 
-        shows.add(
-            ShowEntity(
-                "Tv4", "Shows",
-                "Family Guy",
-                "1999",
-                "Animation, Comedy",
-                "Seth MacFarlane, Alex Borstein, Seth Green, Mila Kunis, Mike Henry, Patrick Warbuton, Adam West, Kevin Michael",
-                "71%",
-                "Sick, twisted, politically incorrect and Freakin' Sweet animated series featuring the adventures of the dysfunctional Griffin family. Bumbling Peter and long-suffering Lois have three kids. Stewie (a brilliant but sadistic baby bent on killing his mother and taking over the world), Meg (the oldest, and is the most unpopular girl in town) and Chris (the middle kid, he's not very bright but has a passion for movies). The final member of the family is Brian - a talking dog and much more than a pet, he keeps Stewie in check whilst sipping Martinis and sorting through his own life issues.",
-                R.drawable.poster_family_guy
-            )
-        )
-        shows.add(
-            ShowEntity(
-                "Tv5", "Shows",
-                "The Flash",
-                "2014",
-                "Drama, Sci-Fi & Fantasy",
-                "Grant Gustin, Candice Patton, Danielle Panabaker, Jesse L. Martin, Carlos Valdes, Tom Cavanagh, Danielle Nicolet",
-                "78%",
-                "After a particle accelerator causes a freak storm, CSI Investigator Barry Allen is struck by lightning and falls into a coma. Months later he awakens with the power of super speed, granting him the ability to move through Central City like an unseen guardian angel. Though initially excited by his newfound powers, Barry is shocked to discover he is not the only \"meta-human\" who was created in the wake of the accelerator explosion -- and not everyone is using their new powers for good. Barry partners with S.T.A.R. Labs and dedicates his life to protect the innocent. For now, only a few close friends and associates know that Barry is literally the fastest man alive, but it won't be long before the world learns what Barry Allen has become...The Flash.",
-                R.drawable.poster_flash
+        shows.add(ShowEntity(
+            2051,
+            "The Price Is Right",
+            "1972-09-04",
+            6.9,
+            "\"Come on down!\" The Price Is Right features a wide variety of games and contests with the same basic challenge: Guess the prices of everyday (or not-quite-everyday) retail items. ",
+            "/6m4uYFAJwkanZXd0n0HUQ0lYHLl.jpg",
+        ))
 
-            )
-        )
+        shows.add(ShowEntity(
+            1991,
+            "Rachael Ray",
+            "2006-09-18",
+            5.3,
+            "Rachael Ray, also known as The Rachael Ray Show, is an American talk show starring Rachael Ray that debuted in syndication in the United States and Canada on September 18, 2006. It is filmed at Chelsea Television Studios in New York City. The show's 8th season premiered on September 9, 2013, and became the last Harpo show in syndication to switch to HD with a revamped studio. In January 2012, CBS Television Distribution announced a two-year renewal for the show, taking it through the 2013–14 season.",
+            "/dsAJhCLYX1fiNRoiiJqR6Up4aJ.jpg",
+        ))
 
-        shows.add(
-            ShowEntity(
-                "Tv6", "Shows",
-                "Game of Thrones",
-                "2011",
-                "Sci-Fi & Fantasy, Drama, Action & Adventure",
-                "Nikolaj Coster-Waldau, Lena Headey, Emilia Clarke, Kit Harington, Sophie Turner, Maisie Williams, Rory McCann, Peter Dinklage",
-                "84%",
-                "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
-                R.drawable.poster_god
-            )
-        )
+        shows.add(ShowEntity(
+            2778,
+            "Wheel of Fortune",
+            "1983-09-19",
+            7.2,
+            "This game show sees contestants solve word puzzles, similar to those used in Hangman, to win cash and prizes determined by spinning a giant carnival wheel.",
+            "/2fvAIyVfFHQdhJ7OsJWuMlF7836.jpg"
+        ))
 
-        shows.add(
-            ShowEntity(
-                "Tv7", "Shows",
-                "Marvel's Iron Fist",
-                "2017",
-                "Action & Adventure, Drama, Sci-Fi & Fantasy",
-                "Finn Jones, Jessica Henwick, Jessica Stroup, Tom Pelphrey, Sacha Dhawan, Rosario Dawson, David Wenham, Alice Eve, Wai Ching Ho",
-                "66%",
-                "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
-                R.drawable.poster_iron_fist
-            )
-        )
+        shows.add(ShowEntity(
+            127235,
+            "Invasion",
+            "2021-10-21",
+            7.5,
+            "Earth is visited by an alien species that threatens humanity’s existence. Events unfold in real time through the eyes of five ordinary people across the globe as they struggle to make sense of the chaos unraveling around them.",
+            "/7rpiHZx10Nm50AtzTUEO9eyaKdq.jpg"
+        ))
 
-        shows.add(
-            ShowEntity(
-                "Tv8", "Shows",
-                "Naruto Shippūden",
-                "2007",
-                "Animation, Action & Adventure, Sci-Fi & Fantasy",
-                "Jouji Nakata, Junko Takeuchi, Chie Nakamura, Noriaki Sugiyama, Kazuhiko Inoue, Satoshi Hino, Akira Ishida, Hideo Ishikawa, Kōichi Tōchika",
-                "86%",
-                "Naruto Shippuuden is the continuation of the original animated TV series Naruto.The story revolves around an older and slightly more matured Uzumaki Naruto and his quest to save his friend Uchiha Sasuke from the grips of the snake-like Shinobi, Orochimaru. After 2 and a half years Naruto finally returns to his village of Konoha, and sets about putting his ambitions to work, though it will not be easy, as He has amassed a few (more dangerous) enemies, in the likes of the shinobi organization; Akatsuki.",
-                R.drawable.poster_naruto_shipudden
-            )
-        )
+        shows.add(ShowEntity(
+            63174,
+            "Lucifer",
+            "2016-01-25",
+            8.5,
+            "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape.",
+            "/ekZobS8isE6mA53RAiGDG93hBxL.jpg"
+        ))
 
-        shows.add(
-            ShowEntity(
-                "Tv9", "Shows",
-                "Supergirl",
-                "2015",
-                "Drama, Sci-Fi & Fantasy, Action & Adventure",
-                "David Harewood, Melissa Benoist, Chyler Leigh, Katie McGrath, Mehcad Brooks, Jeremy Jordan, Jesse Rath, Nicole Maines, Chris Wood",
-                "73%",
-                "Twenty-four-year-old Kara Zor-El, who was taken in by the Danvers family when she was 13 after being sent away from Krypton, must learn to embrace her powers after previously hiding them. The Danvers teach her to be careful with her powers, until she has to reveal them during an unexpected disaster, setting her on her journey of heroism.",
-                R.drawable.poster_supergirl
-            )
-        )
+        shows.add(ShowEntity(
+            84299,
+            "Al Hayba",
+            "2017-05-27",
+            6.3,
+            "In a village by the Lebanon-Syria border, the head of an arms-smuggling clan contends with family conflicts, power struggles and complicated love.",
+            "/3QTp0Vu3t3ZfHwMvOOLpCUkJHZN.jpg"
+        ))
 
-        shows.add(
-            ShowEntity(
-                "Tv10", "Shows",
-                "Supernatural",
-                "2005",
-                "Drama, Mystery, Sci-Fi & Fantasy",
-                "Jared Padalecki, Jensen Ackles, Misha Collins, Mark Sheppard, Alexander Calvert, Jim Beaver, Mark Pellegrino, Ruth Connell, Samantha Smith",
-                "73%",
-                "When they were boys, Sam and Dean Winchester lost their mother to a mysterious and demonic supernatural force. Subsequently, their father raised them to be soldiers. He taught them about the paranormal evil that lives in the dark corners and on the back roads of America ... and he taught them how to kill it. Now, the Winchester brothers crisscross the country in their '67 Chevy Impala, battling every kind of supernatural threat they encounter along the way.",
-                R.drawable.poster_supernatural
-            )
-        )
+        shows.add(ShowEntity(
+            71712,
+            "The Good Doctor",
+            "2017-09-25",
+            8.6,
+            "Shaun Murphy, a young surgeon with autism and savant syndrome, relocates from a quiet country life to join a prestigious hospital's surgical unit. Unable to personally connect with those around him, Shaun uses his extraordinary medical gifts to save lives and challenge the skepticism of his colleagues.",
+            "/cXUqtadGsIcZDWUTrfnbDjAy8eN.jpg"
+        ))
+
         return shows
     }
 }
