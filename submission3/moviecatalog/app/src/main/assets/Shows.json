@@ -1,0 +1,84 @@
+{
+  "results": [
+    {
+      "first_air_date": "2021-09-17",
+      "id": 93405,
+      "name": "Squid Game",
+      "overview": "Hundreds of cash-strapped players accept a strange invitation to compete in children's games—with high stakes. But, a tempting prize awaits the victor.",
+      "poster_path": "/dDlEmu3EZ0Pgg93K2SVNLCjCSvE.jpg",
+      "vote_average": 7.8
+    },
+    {
+      "first_air_date": "2021-10-29",
+      "id": 113901,
+      "name": "Maradona: Blessed Dream",
+      "overview": "The controversial life and history of Argentine football legend Diego Armando Maradona. From his beginnings in Villa Fiorito, one of the poorest barrios of Buenos Aires, to achieving glory on the international football league. Earning himself a well-deserved place in history. Living a life strewn with drugs, sex and public scrutiny, he played by his own rules regardless of the consequences. Watch the man who took the world by storm and made his way into the hearts of millions.",
+      "poster_path": "/mGPdWEEmfzP7VQBQsXrFt1b1ikQ.jpg",
+      "vote_average": 7.7
+    },
+    {
+      "first_air_date": "2021-11-06",
+      "id": 94605,
+      "name": "Arcane",
+      "overview": "Amid the stark discord of twin cities Piltover and Zaun, two sisters fight on rival sides of a war between magic technologies and clashing convictions.",
+      "poster_path": "/fqldf2t8ztc9aiwn3k6mlX3tvRT.jpg",
+      "vote_average": 9.3
+    },
+    {
+      "first_air_date": "1972-09-04",
+      "id": 2051,
+      "name": "The Price Is Right",
+      "overview": "\"Come on down!\" The Price Is Right features a wide variety of games and contests with the same basic challenge: Guess the prices of everyday (or not-quite-everyday) retail items. ",
+      "poster_path": "/6m4uYFAJwkanZXd0n0HUQ0lYHLl.jpg",
+      "vote_average": 6.9
+    },
+    {
+      "first_air_date": "2006-09-18",
+      "id": 1991,
+      "name": "Rachael Ray",
+      "overview": "Rachael Ray, also known as The Rachael Ray Show, is an American talk show starring Rachael Ray that debuted in syndication in the United States and Canada on September 18, 2006. It is filmed at Chelsea Television Studios in New York City. The show's 8th season premiered on September 9, 2013, and became the last Harpo show in syndication to switch to HD with a revamped studio. In January 2012, CBS Television Distribution announced a two-year renewal for the show, taking it through the 2013–14 season.",
+      "poster_path": "/dsAJhCLYX1fiNRoiiJqR6Up4aJ.jpg",
+      "vote_average": 5.3
+    },
+    {
+      "first_air_date": "1983-09-19",
+      "id": 2778,
+      "name": "Wheel of Fortune",
+      "overview": "This game show sees contestants solve word puzzles, similar to those used in Hangman, to win cash and prizes determined by spinning a giant carnival wheel.",
+      "poster_path": "/2fvAIyVfFHQdhJ7OsJWuMlF7836.jpg",
+      "vote_average": 7.2
+    },
+    {
+      "first_air_date": "2021-10-21",
+      "id": 127235,
+      "name": "Invasion",
+      "overview": "Earth is visited by an alien species that threatens humanity’s existence. Events unfold in real time through the eyes of five ordinary people across the globe as they struggle to make sense of the chaos unraveling around them.",
+      "poster_path": "/7rpiHZx10Nm50AtzTUEO9eyaKdq.jpg",
+      "vote_average": 7.5
+    },
+    {
+      "first_air_date": "2016-01-25",
+      "id": 63174,
+      "name": "Lucifer",
+      "overview": "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape.",
+      "poster_path": "/ekZobS8isE6mA53RAiGDG93hBxL.jpg",
+      "vote_average": 8.5
+    },
+    {
+      "first_air_date": "2017-05-27",
+      "id": 84299,
+      "name": "Al Hayba",
+      "overview": "In a village by the Lebanon-Syria border, the head of an arms-smuggling clan contends with family conflicts, power struggles and complicated love.",
+      "poster_path": "/3QTp0Vu3t3ZfHwMvOOLpCUkJHZN.jpg",
+      "vote_average": 6.3
+    },
+    {
+      "first_air_date": "2017-09-25",
+      "id": 71712,
+      "name": "The Good Doctor",
+      "overview": "Shaun Murphy, a young surgeon with autism and savant syndrome, relocates from a quiet country life to join a prestigious hospital's surgical unit. Unable to personally connect with those around him, Shaun uses his extraordinary medical gifts to save lives and challenge the skepticism of his colleagues.",
+      "poster_path": "/cXUqtadGsIcZDWUTrfnbDjAy8eN.jpg",
+      "vote_average": 8.6
+    }
+  ]
+}
