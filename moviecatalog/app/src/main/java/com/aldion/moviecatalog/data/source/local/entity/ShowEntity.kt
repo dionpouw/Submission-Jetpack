@@ -6,9 +6,9 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class ShowEntity(
     val id: Int,
-    var title: String,
+    val title: String,
     val releaseDate: String,
-    var voteAverage: Double,
-    var overview: String,
-    var posterPath: String,
+    val voteAverage: Double,
+    val overview: String,
+    val posterPath: String,
 ) : Parcelable

@@ -7,11 +7,11 @@ import com.aldion.moviecatalog.data.source.remote.RemoteDataSource
 import com.aldion.moviecatalog.data.source.remote.response.MovieResponse
 import com.aldion.moviecatalog.data.source.remote.response.TvResponse
 
-class ShowsRepository private constructor(private val remoteDataSource: RemoteDataSource) :
+class FakeShowsRepository(private val remoteDataSource: RemoteDataSource) :
     ShowsDataSource {
+
     override fun getAllMovies(): LiveData<List<ShowEntity>> {
-        val movieResults = MutableLiveData<List<ShowEntity>>(
-        )
+        val movieResults = MutableLiveData<List<ShowEntity>>()
         remoteDataSource.getAllMovies(object : RemoteDataSource.LoadMoviesCallback {
             override fun onAllMovieReceived(movieResponse: List<MovieResponse>) {
                 val movieList = ArrayList<ShowEntity>()
@@ -54,7 +54,6 @@ class ShowsRepository private constructor(private val remoteDataSource: RemoteDa
         })
         return showsResult
     }
-
     override fun getMovieDetail(movieId: Int): LiveData<ShowEntity> {
         val movieResult = MutableLiveData<ShowEntity>()
         remoteDataSource.getAllMovies(object : RemoteDataSource.LoadMoviesCallback {
@@ -102,15 +101,4 @@ class ShowsRepository private constructor(private val remoteDataSource: RemoteDa
         })
         return showResult
     }
-
-    companion object {
-        @Volatile
-        private var instance: ShowsRepository? = null
-
-        fun getInstance(remoteData: RemoteDataSource): ShowsRepository =
-            instance ?: synchronized(this) {
-                instance ?: ShowsRepository(remoteData).apply { instance = this }
-            }
-    }
-
 }

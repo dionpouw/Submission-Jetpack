@@ -11,4 +11,5 @@
     <string name="tab_text_2">TV Shows</string>
     <string name="year">Year</string>
     <string name="image">Image</string>
+    <string name="splash_image">Splash Image</string>
 </resources>

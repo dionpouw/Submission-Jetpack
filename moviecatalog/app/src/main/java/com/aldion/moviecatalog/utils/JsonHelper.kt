@@ -38,11 +38,11 @@ class JsonHelper(private val context: Context) {
                 val voteAverage = movie.getDouble("vote_average")
 
                 val movieResponse = MovieResponse(
-                    overview,
-                    releaseDate,
-                    voteAverage,
                     id,
                     title,
+                    releaseDate,
+                    voteAverage,
+                    overview,
                     posterPath
                 )
                 list.add(movieResponse)
@@ -61,19 +61,19 @@ class JsonHelper(private val context: Context) {
             for (i in 0 until listArray.length()) {
                 val movie = listArray.getJSONObject(i)
 
-                val firstAirDate = movie.getString("first_air_date")
+                val releaseDate = movie.getString("first_air_date")
                 val id = movie.getInt("id")
-                val name = movie.getString("name")
+                val title = movie.getString("name")
                 val overview = movie.getString("overview")
                 val posterPath = movie.getString("poster_path")
                 val voteAverage = movie.getDouble("vote_average")
 
                 val tvShowsResponse = TvResponse(
-                    firstAirDate,
-                    overview,
-                    name,
-                    voteAverage,
                     id,
+                    title,
+                    releaseDate,
+                    voteAverage,
+                    overview,
                     posterPath
                 )
                 list.add(tvShowsResponse)
