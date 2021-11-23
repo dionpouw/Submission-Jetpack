@@ -3,6 +3,7 @@ package com.aldion.moviecatalog.ui.fragment.tv
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.aldion.moviecatalog.R
 import com.aldion.moviecatalog.data.source.local.entity.ShowEntity

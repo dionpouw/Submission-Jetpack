@@ -5,15 +5,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aldion.moviecatalog.databinding.MovieShowFragmentBinding
 import com.aldion.moviecatalog.viewmodel.ViewModelFactory
+import com.aldion.moviecatalog.vo.Status
 
 class MoviesFragment : Fragment() {
 
-    private lateinit var binding: MovieShowFragmentBinding
+    private var _binding: MovieShowFragmentBinding? = null
+    private val binding get() = _binding!!
     private var listAdapter = MoviesShowsAdapter()
     private var contextThis: Context? = null
 
@@ -21,7 +24,7 @@ class MoviesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        binding = MovieShowFragmentBinding.inflate(inflater, container, false)
+        _binding = MovieShowFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -32,11 +35,26 @@ class MoviesFragment : Fragment() {
         val viewModel =
             ViewModelProvider(requireActivity(), factory)[MoviesShowsViewModel::class.java]
 
-        binding.progressBar.visibility = View.VISIBLE
-        viewModel.getMovie().observe(viewLifecycleOwner, { movieTvShows ->
-            binding.progressBar.visibility = View.GONE
-            listAdapter.setMovie(movieTvShows)
-            listAdapter.notifyDataSetChanged()
+        viewModel.getMovie().observe(viewLifecycleOwner, { movies ->
+            if (movies.data != null) {
+                when (movies.status) {
+                    Status.LOADING -> {
+                        binding.progressBar.visibility = View.VISIBLE
+                        binding.rvMoviesShows.visibility = View.GONE
+                    }
+                    Status.SUCCESS -> {
+                        binding.progressBar.visibility = View.GONE
+                        binding.rvMoviesShows.visibility = View.VISIBLE
+                        listAdapter.setMovie(movies.data)
+                        listAdapter.notifyDataSetChanged()
+                    }
+                    Status.ERROR -> {
+                        binding.progressBar.visibility = View.GONE
+                        binding.rvMoviesShows.visibility = View.GONE
+                        Toast.makeText(context, "There's an error", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
         })
 
         binding.rvMoviesShows.apply {
@@ -54,5 +72,10 @@ class MoviesFragment : Fragment() {
     override fun onDetach() {
         super.onDetach()
         this.contextThis = null
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

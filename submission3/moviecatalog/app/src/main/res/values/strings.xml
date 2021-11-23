@@ -12,4 +12,6 @@
     <string name="year">Year</string>
     <string name="image">Image</string>
     <string name="splash_image">Splash Image</string>
+    <string name="menu_bookmark">bookmark</string>
+    <string name="there_s_no_bookmarked_yet">There\'s no favorite yet</string>
 </resources>

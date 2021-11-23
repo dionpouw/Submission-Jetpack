@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer
 import com.aldion.moviecatalog.data.source.ShowsRepository
 import com.aldion.moviecatalog.data.source.local.entity.ShowEntity
 import com.aldion.moviecatalog.utils.DataDummy
+import com.aldion.moviecatalog.vo.Resource
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
@@ -27,7 +28,7 @@ class MoviesShowsViewModelTest {
     private lateinit var showsRepository: ShowsRepository
 
     @Mock
-    private lateinit var observer: Observer<List<ShowEntity>>
+    private lateinit var observer: Observer<Resource<List<ShowEntity>>>
 
     @Before
     fun setUp() {
@@ -36,12 +37,12 @@ class MoviesShowsViewModelTest {
 
     @Test
     fun getMovie() {
-        val dummyMovie = DataDummy.generateDummyFilms()
-        val data = MutableLiveData<List<ShowEntity>>()
+        val dummyMovie = Resource.success(DataDummy.generateDummyFilms())
+        val data = MutableLiveData<Resource<List<ShowEntity>>>()
         data.value = dummyMovie
 
         `when`(showsRepository.getAllMovies()).thenReturn(data)
-        val moviesEntities = viewModel.getMovie().value
+        val moviesEntities = viewModel.getMovie().value?.data
         verify(showsRepository).getAllMovies()
         assertNotNull(moviesEntities)
         assertEquals(10, moviesEntities?.size)

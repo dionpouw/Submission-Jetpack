@@ -6,10 +6,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.aldion.moviecatalog.data.source.ShowsRepository
 import com.aldion.moviecatalog.di.Injection
 import com.aldion.moviecatalog.ui.detail.DetailShowViewModel
+import com.aldion.moviecatalog.ui.bookmark.BookmarkViewModel
 import com.aldion.moviecatalog.ui.fragment.movie.MoviesShowsViewModel
 import com.aldion.moviecatalog.ui.fragment.tv.TvViewModel
 
-class ViewModelFactory private constructor(private val mShowsRepository: ShowsRepository) : ViewModelProvider.NewInstanceFactory() {
+class ViewModelFactory private constructor(private val mShowsRepository: ShowsRepository) :
+    ViewModelProvider.NewInstanceFactory() {
 
     companion object {
         @Volatile
@@ -21,6 +23,7 @@ class ViewModelFactory private constructor(private val mShowsRepository: ShowsRe
             }
         }
     }
+
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
@@ -32,6 +35,9 @@ class ViewModelFactory private constructor(private val mShowsRepository: ShowsRe
             }
             modelClass.isAssignableFrom(TvViewModel::class.java) -> {
                 TvViewModel(mShowsRepository) as T
+            }
+            modelClass.isAssignableFrom(BookmarkViewModel::class.java) -> {
+                BookmarkViewModel(mShowsRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }

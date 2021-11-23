@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-parcelize'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -45,6 +46,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
 
     //ui
+
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
     implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
@@ -57,9 +59,9 @@ dependencies {
     implementation "androidx.viewpager2:viewpager2:$viewPager2Version"
     implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
     implementation "androidx.activity:activity-ktx:$activityKtxVersion"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
     implementation 'androidx.test.espresso:espresso-idling-resource:3.4.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     //testing
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "junit:junit:$junitVersion"
@@ -73,7 +75,8 @@ dependencies {
     testImplementation "androidx.arch.core:core-testing:$androidCoreTestVersion"
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
 
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
-    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2"
+    implementation "androidx.room:room-runtime:$roomRuntimeVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.paging:paging-runtime:$pagingVersion"
 }

@@ -3,14 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_bookmark_selector.xml" value="0.16574074074074074" />
+        <entry key="app/src/main/res/drawable/ic_favorite_selector.xml" value="0.23645833333333333" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.21510416666666668" />
+        <entry key="app/src/main/res/layout/activity_bookmark.xml" value="0.20677083333333332" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.29030797101449274" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.29030797101449274" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.29030797101449274" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.25271739130434784" />
+        <entry key="app/src/main/res/layout/bookmark_fragment.xml" value="0.2203125" />
         <entry key="app/src/main/res/layout/item_show.xml" value="0.29030797101449274" />
         <entry key="app/src/main/res/layout/movie_show_fragment.xml" value="0.29030797101449274" />
         <entry key="app/src/main/res/layout/tv_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/menu_detail.xml" value="0.1" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
       </map>
     </option>

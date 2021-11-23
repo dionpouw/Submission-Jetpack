@@ -1,4 +1,4 @@
-package com.aldion.moviecatalog.ui.fragment.movie
+package com.aldion.moviecatalog.ui.bookmark
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -12,21 +12,21 @@ import com.aldion.moviecatalog.ui.detail.DetailActivity
 import com.bumptech.glide.Glide
 
 
-class MoviesShowsAdapter : RecyclerView.Adapter<MoviesShowsAdapter.MovieShowViewHolder>() {
-    private var listMovie = ArrayList<ShowEntity>()
+class BookmarkAdapter : RecyclerView.Adapter<BookmarkAdapter.BookmarkViewHolder>() {
+    private var listBookmark = ArrayList<ShowEntity>()
 
-    fun setMovie(movie: List<ShowEntity>) {
-        this.listMovie.clear()
-        this.listMovie.addAll(movie)
+    fun setBookmark(listBookmark: List<ShowEntity>) {
+        this.listBookmark.clear()
+        this.listBookmark.addAll(listBookmark)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieShowViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookmarkViewHolder {
         val itemsShowBinding =
             ItemShowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MovieShowViewHolder(itemsShowBinding)
+        return BookmarkViewHolder(itemsShowBinding)
     }
 
-    class MovieShowViewHolder(private val binding: ItemShowBinding) :
+    class BookmarkViewHolder(private val binding: ItemShowBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(movies: ShowEntity) {
             with(binding) {
@@ -45,23 +45,14 @@ class MoviesShowsAdapter : RecyclerView.Adapter<MoviesShowsAdapter.MovieShowView
         }
     }
 
-    override fun onBindViewHolder(holder: MovieShowViewHolder, position: Int) {
-        val movieShow = listMovie[position]
-        holder.bind(movieShow)
+    override fun onBindViewHolder(holder: BookmarkViewHolder, position: Int) {
+        val bookmarked = listBookmark[position]
+        holder.bind(bookmarked)
     }
 
-    override fun getItemCount(): Int = listMovie.size
-
-    companion object{
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ShowEntity>(){
-            override fun areItemsTheSame(oldItem: ShowEntity, newItem: ShowEntity): Boolean {
-                return oldItem.id == newItem.id
-            }
-
-            override fun areContentsTheSame(oldItem: ShowEntity, newItem: ShowEntity): Boolean {
-                return oldItem == newItem
-            }
-        }
+    fun getBookmarkAt(position: Int):ShowEntity {
+        return ShowEntity(listBookmark[position].id,listBookmark[position].title,listBookmark[position].category,listBookmark[position].releaseDate,listBookmark[position].voteAverage,listBookmark[position].overview,listBookmark[position].bookmarked,listBookmark[position].posterPath)
     }
+
+    override fun getItemCount(): Int = listBookmark.size
 }
-

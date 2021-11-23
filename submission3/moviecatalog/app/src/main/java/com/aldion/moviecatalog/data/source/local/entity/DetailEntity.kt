@@ -1,26 +1,19 @@
 package com.aldion.moviecatalog.data.source.local.entity
 
-import android.os.Parcelable
 import androidx.annotation.NonNull
-import androidx.annotation.Nullable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import kotlinx.parcelize.Parcelize
 
-@Entity(tableName = "movieShowEntities")
-@Parcelize
-data class ShowEntity(
+@Entity(tableName = "detailEntities")
+data class DetailEntity(
     @PrimaryKey
     @NonNull
-    @ColumnInfo(name = "movieShowId")
+    @ColumnInfo(name = "detailId")
     val id: Int,
 
     @ColumnInfo(name = "title")
     val title: String,
-
-    @ColumnInfo(name = "category")
-    var category: String,
 
     @ColumnInfo(name = "releaseDate")
     val releaseDate: String,
@@ -31,10 +24,6 @@ data class ShowEntity(
     @ColumnInfo(name = "overview")
     val overview: String,
 
-    @Nullable
-    @ColumnInfo(name = "bookmarked")
-    var bookmarked: Boolean = false,
-
     @ColumnInfo(name = "posterPath")
     val posterPath: String,
-) : Parcelable
+)
