@@ -9,7 +9,7 @@ import kotlinx.coroutines.*
 
 class SplashActivity : AppCompatActivity() {
     private var binding: ActivitySplashBinding? = null
-    val time = 2000L
+    private val time = 2000L
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)

@@ -7,7 +7,7 @@
     tools:context=".ui.fragment.movie.MoviesFragment">
 
     <TextView
-        android:id="@+id/emptyData"
+        android:id="@+id/empty_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/there_s_no_bookmarked_yet"

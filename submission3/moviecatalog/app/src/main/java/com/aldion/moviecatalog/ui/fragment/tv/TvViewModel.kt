@@ -8,5 +8,5 @@ import com.aldion.moviecatalog.data.source.local.entity.ShowEntity
 import com.aldion.moviecatalog.vo.Resource
 
 class TvViewModel(private val mShowsRepository: ShowsRepository) : ViewModel() {
-    fun getTvShows(): LiveData<Resource<List<ShowEntity>>> = mShowsRepository.getAllShows()
+    fun getTvShows(): LiveData<Resource<PagedList<ShowEntity>>> = mShowsRepository.getAllShows()
 }

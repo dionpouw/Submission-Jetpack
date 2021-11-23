@@ -1,23 +1,23 @@
 package com.aldion.moviecatalog.data.source
 
-import android.provider.ContactsContract
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
-import com.aldion.moviecatalog.data.source.remote.RemoteDataSource
-import com.aldion.moviecatalog.utils.DataDummy
-import com.aldion.moviecatalog.LiveDataTestUtil
+import androidx.paging.DataSource
+import com.aldion.moviecatalog.utils.LiveDataTestUtil
 import com.aldion.moviecatalog.data.source.local.LocalDataSource
+import com.aldion.moviecatalog.data.source.local.entity.DetailEntity
 import com.aldion.moviecatalog.data.source.local.entity.ShowEntity
+import com.aldion.moviecatalog.data.source.remote.RemoteDataSource
 import com.aldion.moviecatalog.utils.AppExecutors
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.doAnswer
+import com.aldion.moviecatalog.utils.DataDummy
+import com.aldion.moviecatalog.utils.PagedListUtil
+import com.aldion.moviecatalog.vo.Resource
 import com.nhaarman.mockitokotlin2.verify
 import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertNotNull
 import org.junit.Rule
 import org.junit.Test
-import org.mockito.Mockito.`when`
-import org.mockito.Mockito.mock
+import org.mockito.Mockito.*
 
 class ShowsRepositoryTest {
 
@@ -28,7 +28,7 @@ class ShowsRepositoryTest {
     private val local = mock(LocalDataSource::class.java)
     private val appExecutors = mock(AppExecutors::class.java)
 
-    private val filmRepository = FakeShowsRepository(remote,local,appExecutors)
+    private val filmRepository = FakeShowsRepository(remote, local, appExecutors)
 
     private val moviesResponse = DataDummy.generateRemoteDummyFilms()
     private val showsResponse = DataDummy.generateRemoteDummyTvShows()
@@ -37,11 +37,10 @@ class ShowsRepositoryTest {
 
     @Test
     fun getAllMovies() {
-        val dummyMovies = MutableLiveData<List<ShowEntity>>()
-        dummyMovies.value = DataDummy.generateDummyFilms()
-        `when`(local.getAllMovies()).thenReturn(dummyMovies)
-
-        val movieEntity = LiveDataTestUtil.getValue(filmRepository.getAllMovies())
+        val dataSourceFactory = mock(DataSource.Factory::class.java) as DataSource.Factory<Int, ShowEntity>
+        `when`(local.getAllMovies()).thenReturn(dataSourceFactory)
+        filmRepository.getAllMovies()
+        val movieEntity = Resource.success(PagedListUtil.mockPagedList(DataDummy.generateDummyFilms()))
         verify(local).getAllMovies()
         assertNotNull(movieEntity.data)
         assertEquals(moviesResponse.size.toLong(), movieEntity.data?.size?.toLong())
@@ -49,33 +48,60 @@ class ShowsRepositoryTest {
 
     @Test
     fun getAllShows() {
-        val dummyShows = MutableLiveData<List<ShowEntity>>()
-        dummyShows.value = DataDummy.generateDummyTvShows()
-        val showEntity = LiveDataTestUtil.getValue(filmRepository.getAllShows())
-        verify(remote).getAllShows()
-        assertNotNull(showEntity)
+        val dataSourceFactory = mock(DataSource.Factory::class.java) as DataSource.Factory<Int, ShowEntity>
+        `when`(local.getAllShows()).thenReturn(dataSourceFactory)
+        filmRepository.getAllShows()
+
+        val showEntity = Resource.success(PagedListUtil.mockPagedList(DataDummy.generateDummyTvShows()))
+        verify(local).getAllShows()
+        assertNotNull(showEntity.data)
         assertEquals(showsResponse.size.toLong(), showEntity.data?.size?.toLong())
     }
 
     @Test
     fun getMovieDetail() {
-        val dummyEntity = MutableLiveData<ShowEntity>()
-        dummyEntity.value = DataDummy.genera
+        val dummyEntity = MutableLiveData<DetailEntity>()
+        dummyEntity.value = DataDummy.generateDataDummyMovie()[0]
+        `when`(local.getMovieShowDetail(movieId)).thenReturn(dummyEntity)
         val movieEntity = LiveDataTestUtil.getValue(filmRepository.getMovieDetail(movieId))
-        verify(remote).getAllMovies(any())
+        verify(local).getMovieShowDetail(movieId)
         assertNotNull(movieEntity)
-        assertEquals(moviesResponse[0].id,movieEntity.id)
+        assertEquals(moviesResponse[0].id, movieEntity.data?.id)
     }
 
     @Test
     fun getShowDetail() {
-        doAnswer { invocation ->
-            (invocation.arguments[0] as RemoteDataSource.LoadShowsCallback).onAllShowreceived(showsResponse)
-            null
-        }.`when`(remote).getAllShows(any())
+        val dummyEntity = MutableLiveData<DetailEntity>()
+        dummyEntity.value = DataDummy.generateDataDummyShow()[0]
+        `when`(local.getMovieShowDetail(showId)).thenReturn(dummyEntity)
         val showEntity = LiveDataTestUtil.getValue(filmRepository.getShowDetail(showId))
-        verify(remote).getAllShows(any())
+        verify(local).getMovieShowDetail(showId)
         assertNotNull(showEntity)
-        assertEquals(showsResponse[0].id,showEntity.id)
+        assertEquals(showsResponse[0].id, showEntity.data?.id)
     }
+
+    @Test
+    fun getFavoritedMovie(){
+        val dataSourceFactory = mock(DataSource.Factory::class.java) as DataSource.Factory<Int, ShowEntity>
+        `when`(local.getBookmarkedMovieShow()).thenReturn(dataSourceFactory)
+        filmRepository.getBookmarkedMoviesShows()
+
+        val bookmarkEntities = Resource.success(PagedListUtil.mockPagedList(DataDummy.generateDummyFilms()))
+        verify(local).getBookmarkedMovieShow()
+        assertNotNull(bookmarkEntities)
+        assertEquals(moviesResponse.size.toLong(), bookmarkEntities.data?.size?.toLong())
+    }
+
+    @Test
+    fun getFavoritedShow(){
+        val dataSourceFactory = mock(DataSource.Factory::class.java) as DataSource.Factory<Int, ShowEntity>
+        `when`(local.getBookmarkedMovieShow()).thenReturn(dataSourceFactory)
+        filmRepository.getBookmarkedMoviesShows()
+
+        val bookmarkEntities = Resource.success(PagedListUtil.mockPagedList(DataDummy.generateDummyTvShows()))
+        verify(local).getBookmarkedMovieShow()
+        assertNotNull(bookmarkEntities)
+        assertEquals(showsResponse.size.toLong(), bookmarkEntities.data?.size?.toLong())
+    }
+
 }

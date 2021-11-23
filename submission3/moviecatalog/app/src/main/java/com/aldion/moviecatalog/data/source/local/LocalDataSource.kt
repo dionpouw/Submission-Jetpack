@@ -8,11 +8,11 @@ import com.aldion.moviecatalog.data.source.local.room.MovieShowDao
 
 class LocalDataSource private constructor(private val mMovieShowDao: MovieShowDao) {
 
-    fun getAllMovies(): LiveData<List<ShowEntity>> = mMovieShowDao.getMovies()
+    fun getAllMovies(): DataSource.Factory<Int, ShowEntity> = mMovieShowDao.getMovies()
 
-    fun getAllShows(): LiveData<List<ShowEntity>> = mMovieShowDao.getShows()
+    fun getAllShows(): DataSource.Factory<Int, ShowEntity> = mMovieShowDao.getShows()
 
-    fun getBookmarkedMovieShow(): LiveData<List<ShowEntity>> =
+    fun getBookmarkedMovieShow(): DataSource.Factory<Int, ShowEntity> =
         mMovieShowDao.getBookmarkedMovieShow()
 
     fun insertMoviesShows(movieShows: List<ShowEntity>) =

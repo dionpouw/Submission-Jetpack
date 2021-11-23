@@ -33,8 +33,8 @@ class TvFragment : Fragment() {
         val factory = ViewModelFactory.getInstance(requireActivity())
         val viewModel = ViewModelProvider(requireActivity(), factory)[TvViewModel::class.java]
 
-        viewModel.getTvShows().observe(viewLifecycleOwner, { shows ->
-            if (shows.data != null) {
+        viewModel.getTvShows().observe(this, { shows ->
+            if (shows != null) {
                 when (shows.status) {
                     Status.LOADING -> {
                         binding.progressBar.visibility = View.VISIBLE
@@ -43,7 +43,7 @@ class TvFragment : Fragment() {
                     Status.SUCCESS -> {
                         binding.progressBar.visibility = View.GONE
                         binding.rvMoviesShows.visibility = View.VISIBLE
-                        listAdapter.setShow(shows.data)
+                        listAdapter.submitList(shows.data)
                         listAdapter.notifyDataSetChanged()
                     }
                     Status.ERROR -> {
@@ -57,7 +57,7 @@ class TvFragment : Fragment() {
 
         binding.rvMoviesShows.apply {
             layoutManager = LinearLayoutManager(contextThis)
-            setHasFixedSize(true)
+
             adapter = listAdapter
         }
     }

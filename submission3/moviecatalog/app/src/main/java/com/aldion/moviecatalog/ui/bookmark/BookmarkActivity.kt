@@ -27,9 +27,9 @@ class BookmarkActivity : AppCompatActivity() {
         val viewModel = ViewModelProvider(this, factory)[BookmarkViewModel::class.java]
 
         viewModel.getBookmarked().observe(this, { bookmark ->
-            if (bookmark.isNotEmpty()) {
+            if (bookmark != null) {
                 binding?.emptyData?.visibility = View.GONE
-                listAdapter.setBookmark(bookmark)
+                listAdapter.submitList(bookmark)
                 listAdapter.notifyDataSetChanged()
             } else {
                 binding?.emptyData?.visibility = View.VISIBLE
@@ -38,7 +38,7 @@ class BookmarkActivity : AppCompatActivity() {
 
         binding?.rvBookmarked?.apply {
             layoutManager = LinearLayoutManager(this@BookmarkActivity)
-            setHasFixedSize(true)
+
             adapter = listAdapter
         }
 
@@ -55,7 +55,7 @@ class BookmarkActivity : AppCompatActivity() {
 
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                     val position: Int = viewHolder.absoluteAdapterPosition
-                    viewModel.setFavorite(listAdapter.getBookmarkAt(position), false)
+                    listAdapter.getBookmarkAt(position)?.let { viewModel.setFavorite(it) }
                     Toast.makeText(this@BookmarkActivity, "unfavorite", Toast.LENGTH_SHORT).show()
                 }
             }).attachToRecyclerView(binding?.rvBookmarked)

@@ -1,5 +1,6 @@
 package com.aldion.moviecatalog.utils
 
+import com.aldion.moviecatalog.data.source.local.entity.DetailEntity
 import com.aldion.moviecatalog.data.source.local.entity.ShowEntity
 import com.aldion.moviecatalog.data.source.remote.response.MovieResponse
 import com.aldion.moviecatalog.data.source.remote.response.TvResponse
@@ -402,6 +403,63 @@ object DataDummy {
         return shows
     }
 
-  //  fun generateRemoteDummyMovie(movieId:Int):MovieResponse = MovieResponse(movieId,"This is dummy film")
-  //  fun generateDummyMovie(movieId:Int):ShowEntity = ShowEntity(555)
+    fun generateDataDummyMovie(): List<DetailEntity> {
+        val movies = ArrayList<DetailEntity>()
+
+        movies.add(
+            DetailEntity(
+                566525,
+                "Shang-Chi and the Legend of the Ten Rings",
+                "2021-09-01",
+                7.9,
+                "Shang-Chi must confront the past he thought he left behind when he is drawn into the web of the mysterious Ten Rings organization.",
+                "/1BIoJGKbXjdFDAqUEiA2VHqkK1Z.jpg"
+            )
+        )
+        return movies
+    }
+
+    fun generateDataDummyShow(): List<DetailEntity> {
+        val shows = ArrayList<DetailEntity>()
+
+        shows.add(
+            DetailEntity(
+                93405,
+                "Squid Game",
+                "2021-09-17",
+                7.8,
+                "Hundreds of cash-strapped players accept a strange invitation to compete in children's games—with high stakes. But, a tempting prize awaits the victor.",
+                "/dDlEmu3EZ0Pgg93K2SVNLCjCSvE.jpg"
+            )
+        )
+        return shows
+    }
+
+    fun generateRemoteDataDummyMovie(): ArrayList<MovieResponse> {
+        val movies = ArrayList<MovieResponse>()
+
+        movies.add(MovieResponse(
+            566525,
+            "Shang-Chi and the Legend of the Ten Rings",
+            "2021-09-01",
+            7.9,
+            "Shang-Chi must confront the past he thought he left behind when he is drawn into the web of the mysterious Ten Rings organization.",
+            "/1BIoJGKbXjdFDAqUEiA2VHqkK1Z.jpg")
+        )
+        return movies
+    }
+
+    fun generateRemoteDataDummyShow(): ArrayList<TvResponse> {
+        val shows = ArrayList<TvResponse>()
+
+        shows.add(TvResponse(
+            93405,
+            "Squid Game",
+            "2021-09-17",
+            7.8,
+            "Hundreds of cash-strapped players accept a strange invitation to compete in children's games—with high stakes. But, a tempting prize awaits the victor.",
+            "/dDlEmu3EZ0Pgg93K2SVNLCjCSvE.jpg"
+        ))
+        return shows
+    }
 }

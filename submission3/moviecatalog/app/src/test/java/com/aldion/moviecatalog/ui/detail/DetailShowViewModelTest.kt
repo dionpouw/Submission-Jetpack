@@ -4,8 +4,9 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.aldion.moviecatalog.data.source.ShowsRepository
-import com.aldion.moviecatalog.data.source.local.entity.ShowEntity
+import com.aldion.moviecatalog.data.source.local.entity.DetailEntity
 import com.aldion.moviecatalog.utils.DataDummy
+import com.aldion.moviecatalog.vo.Resource
 import com.nhaarman.mockitokotlin2.verify
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
@@ -22,10 +23,9 @@ class DetailShowViewModelTest {
 
     private lateinit var viewModel: DetailShowViewModel
     private val dummyDetailMovie = DataDummy.generateDummyFilms()[0]
-    private val movieId = dummyDetailMovie.id
-
     private val dummyDetailShow = DataDummy.generateDummyTvShows()[0]
     private val tvId = dummyDetailShow.id
+    private val movieId = dummyDetailMovie.id
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -34,7 +34,7 @@ class DetailShowViewModelTest {
     private lateinit var showsRepository: ShowsRepository
 
     @Mock
-    private lateinit var observer: Observer<ShowEntity>
+    private lateinit var observer: Observer<Resource<DetailEntity>>
 
     @Before
     fun setUp() {
@@ -43,23 +43,24 @@ class DetailShowViewModelTest {
 
     @Test
     fun getMovieDetail() {
-        val movie = MutableLiveData<ShowEntity>()
+        val dummyDetailMovie = Resource.success(DataDummy.generateDataDummyMovie()[0])
+        val movie = MutableLiveData<Resource<DetailEntity>>()
         movie.value = dummyDetailMovie
 
         viewModel.setSelectedShow(movieId)
 
         `when`(showsRepository.getMovieDetail(movieId)).thenReturn(movie)
-        val result = viewModel.getMovieDetail().value
+        val result = viewModel.getMovieDetail().value?.data
 
         verify(showsRepository).getMovieDetail(movieId)
         assertNotNull(result)
 
-        assertEquals(dummyDetailMovie.id, result?.id)
-        assertEquals(dummyDetailMovie.title, result?.title)
-        assertEquals(dummyDetailMovie.releaseDate, result?.releaseDate)
-        assertEquals(dummyDetailMovie.voteAverage, result?.voteAverage)
-        assertEquals(dummyDetailMovie.overview, result?.overview)
-        assertEquals(dummyDetailMovie.posterPath, result?.posterPath)
+        assertEquals(dummyDetailMovie.data?.id, result?.id)
+        assertEquals(dummyDetailMovie.data?.title, result?.title)
+        assertEquals(dummyDetailMovie.data?.releaseDate, result?.releaseDate)
+        assertEquals(dummyDetailMovie.data?.voteAverage, result?.voteAverage)
+        assertEquals(dummyDetailMovie.data?.overview, result?.overview)
+        assertEquals(dummyDetailMovie.data?.posterPath, result?.posterPath)
 
         viewModel.getMovieDetail().observeForever(observer)
         verify(observer).onChanged(dummyDetailMovie)
@@ -67,26 +68,26 @@ class DetailShowViewModelTest {
 
     @Test
     fun getShowDetail() {
-        val show = MutableLiveData<ShowEntity>()
+        val dummyDetailShow = Resource.success(DataDummy.generateDataDummyShow()[0])
+        val show = MutableLiveData<Resource<DetailEntity>>()
         show.value = dummyDetailShow
 
         viewModel.setSelectedShow(tvId)
 
         `when`(showsRepository.getShowDetail(tvId)).thenReturn(show)
-        val result = viewModel.getShowDetail().value
+        val result = viewModel.getShowDetail().value?.data
 
         verify(showsRepository).getShowDetail(tvId)
         assertNotNull(result)
 
-        assertEquals(dummyDetailShow.id, result?.id)
-        assertEquals(dummyDetailShow.title, result?.title)
-        assertEquals(dummyDetailShow.releaseDate, result?.releaseDate)
-        assertEquals(dummyDetailShow.voteAverage, result?.voteAverage)
-        assertEquals(dummyDetailShow.overview, result?.overview)
-        assertEquals(dummyDetailShow.posterPath, result?.posterPath)
+        assertEquals(dummyDetailShow.data?.id, result?.id)
+        assertEquals(dummyDetailShow.data?.title, result?.title)
+        assertEquals(dummyDetailShow.data?.releaseDate, result?.releaseDate)
+        assertEquals(dummyDetailShow.data?.voteAverage, result?.voteAverage)
+        assertEquals(dummyDetailShow.data?.overview, result?.overview)
+        assertEquals(dummyDetailShow.data?.posterPath, result?.posterPath)
 
         viewModel.getShowDetail().observeForever(observer)
         verify(observer).onChanged(dummyDetailShow)
     }
-
 }

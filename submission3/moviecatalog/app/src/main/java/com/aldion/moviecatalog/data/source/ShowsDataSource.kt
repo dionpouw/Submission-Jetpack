@@ -7,10 +7,10 @@ import com.aldion.moviecatalog.data.source.local.entity.ShowEntity
 import com.aldion.moviecatalog.vo.Resource
 
 interface ShowsDataSource {
-    fun getAllMovies(): LiveData<Resource<List<ShowEntity>>>
-    fun getAllShows(): LiveData<Resource<List<ShowEntity>>>
+    fun getAllMovies(): LiveData<Resource<PagedList<ShowEntity>>>
+    fun getAllShows(): LiveData<Resource<PagedList<ShowEntity>>>
     fun getMovieDetail(movieId: Int): LiveData<Resource<DetailEntity>>
     fun getShowDetail(showId: Int): LiveData<Resource<DetailEntity>>
-    fun getBookmarkedMoviesShows(): LiveData<List<ShowEntity>>
+    fun getBookmarkedMoviesShows(): LiveData<PagedList<ShowEntity>>
     fun setMovieShowBookmark(movieShow: ShowEntity, state: Boolean)
 }

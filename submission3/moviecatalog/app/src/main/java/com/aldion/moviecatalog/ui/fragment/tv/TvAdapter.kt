@@ -3,6 +3,7 @@ package com.aldion.moviecatalog.ui.fragment.tv
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.aldion.moviecatalog.R
@@ -11,13 +12,7 @@ import com.aldion.moviecatalog.databinding.ItemShowBinding
 import com.aldion.moviecatalog.ui.detail.DetailActivity
 import com.bumptech.glide.Glide
 
-class TvAdapter : RecyclerView.Adapter<TvAdapter.ShowViewHolder>() {
-    private var listTvShows = ArrayList<ShowEntity>()
-
-    fun setShow(Shows: List<ShowEntity>) {
-        this.listTvShows.clear()
-        this.listTvShows.addAll(Shows)
-    }
+class TvAdapter : PagedListAdapter<ShowEntity, TvAdapter.ShowViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShowViewHolder {
         val itemsShowBinding =
@@ -30,26 +25,39 @@ class TvAdapter : RecyclerView.Adapter<TvAdapter.ShowViewHolder>() {
         fun bind(shows: ShowEntity) {
             with(binding) {
                 tvNameShow.text = shows.title
-                tvItemReleaseDate.text = shows.releaseDate
+                tvReleaseDate.text = shows.releaseDate
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailActivity::class.java)
                     intent.putExtra(DetailActivity.EXTRA_SHOWS, shows)
-                    intent.putExtra(DetailActivity.EXTRA_TYPE,"Tv")
+                    intent.putExtra(DetailActivity.EXTRA_TYPE, "Tv")
                     itemView.context.startActivity(intent)
                 }
                 Glide.with(itemView.context)
                     .load("https://image.tmdb.org/t/p/w500${shows.posterPath}")
-                    .override(66, 100).error(R.drawable.poster_alita).into(imageView)
+                    .override(66, 100).error(R.drawable.launcher).into(imageView)
             }
         }
     }
 
     override fun onBindViewHolder(holder: ShowViewHolder, position: Int) {
-        val movieShow = listTvShows[position]
-        holder.bind(movieShow)
+        val movieShow = getItem(position)
+        if (movieShow != null) {
+            holder.bind(movieShow)
+        }
     }
 
-    override fun getItemCount(): Int = listTvShows.size
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ShowEntity>() {
+            override fun areItemsTheSame(oldItem: ShowEntity, newItem: ShowEntity): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(oldItem: ShowEntity, newItem: ShowEntity): Boolean {
+                return oldItem == newItem
+            }
+
+        }
+    }
 }
 
 

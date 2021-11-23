@@ -1,6 +1,8 @@
 package com.aldion.moviecatalog.data.source
 
 import androidx.lifecycle.LiveData
+import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagedList
 import com.aldion.moviecatalog.data.NetworkBoundResource
 import com.aldion.moviecatalog.data.source.local.LocalDataSource
 import com.aldion.moviecatalog.data.source.local.entity.DetailEntity
@@ -18,14 +20,19 @@ class ShowsRepository private constructor(
     private val appExecutors: AppExecutors,
 ) :
     ShowsDataSource {
-    override fun getAllMovies(): LiveData<Resource<List<ShowEntity>>> {
+    override fun getAllMovies(): LiveData<Resource<PagedList<ShowEntity>>> {
         return object :
-            NetworkBoundResource<List<ShowEntity>, List<MovieResponse>>(appExecutors) {
-            public override fun loadFromDB(): LiveData<List<ShowEntity>> =
-                localDataSource.getAllMovies()
+            NetworkBoundResource<PagedList<ShowEntity>, List<MovieResponse>>(appExecutors) {
+            public override fun loadFromDB(): LiveData<PagedList<ShowEntity>> {
+                val config = PagedList.Config.Builder()
+                    .setEnablePlaceholders(false)
+                    .setInitialLoadSizeHint(4)
+                    .setPageSize(4)
+                    .build()
+                return LivePagedListBuilder(localDataSource.getAllMovies(), config).build()
+            }
 
-
-            override fun shouldFetch(data: List<ShowEntity>?): Boolean =
+            override fun shouldFetch(data: PagedList<ShowEntity>?): Boolean =
                 data == null || data.isEmpty()
 
 
@@ -53,13 +60,20 @@ class ShowsRepository private constructor(
         }.asLiveData()
     }
 
-    override fun getAllShows(): LiveData<Resource<List<ShowEntity>>> {
+    override fun getAllShows(): LiveData<Resource<PagedList<ShowEntity>>> {
         return object :
-            NetworkBoundResource<List<ShowEntity>, List<TvResponse>>(appExecutors) {
-            public override fun loadFromDB(): LiveData<List<ShowEntity>> =
-                localDataSource.getAllShows()
+            NetworkBoundResource<PagedList<ShowEntity>, List<TvResponse>>(appExecutors) {
+            public override fun loadFromDB(): LiveData<PagedList<ShowEntity>> {
+                val config = PagedList.Config.Builder().apply {
+                    setEnablePlaceholders(false)
+                    setInitialLoadSizeHint(4)
+                    setPageSize(4)
+                }.build()
+                return LivePagedListBuilder(localDataSource.getAllShows(), config).build()
 
-            override fun shouldFetch(data: List<ShowEntity>?): Boolean =
+            }
+
+            override fun shouldFetch(data: PagedList<ShowEntity>?): Boolean =
                 data == null || data.isEmpty()
 
             public override fun createCall(): LiveData<ApiResponse<List<TvResponse>>> =
@@ -134,8 +148,13 @@ class ShowsRepository private constructor(
         }.asLiveData()
     }
 
-    override fun getBookmarkedMoviesShows(): LiveData<List<ShowEntity>> =
-        localDataSource.getBookmarkedMovieShow()
+    override fun getBookmarkedMoviesShows(): LiveData<PagedList<ShowEntity>> {
+        val config = PagedList.Config.Builder().setEnablePlaceholders(false)
+            .setInitialLoadSizeHint(4)
+            .setPageSize(4)
+            .build()
+        return LivePagedListBuilder(localDataSource.getBookmarkedMovieShow(), config).build()
+    }
 
     override fun setMovieShowBookmark(movieShow: ShowEntity, state: Boolean) =
         appExecutors.diskIO().execute {

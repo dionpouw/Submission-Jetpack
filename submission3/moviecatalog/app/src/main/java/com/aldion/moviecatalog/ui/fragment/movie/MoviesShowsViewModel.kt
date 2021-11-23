@@ -8,5 +8,5 @@ import com.aldion.moviecatalog.data.source.local.entity.ShowEntity
 import com.aldion.moviecatalog.vo.Resource
 
 class MoviesShowsViewModel(private val mShowsRepository: ShowsRepository) : ViewModel() {
-    fun getMovie(): LiveData<Resource<List<ShowEntity>>> = mShowsRepository.getAllMovies()
+    fun getMovie(): LiveData<Resource<PagedList<ShowEntity>>> = mShowsRepository.getAllMovies()
 }
