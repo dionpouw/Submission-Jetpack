@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 33
 
     buildFeatures {
         viewBinding true
@@ -15,7 +15,7 @@ android {
     defaultConfig {
         applicationId "com.aldion.moviecatalog"
         minSdk 29
-        targetSdk 31
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -59,7 +59,7 @@ dependencies {
     implementation "androidx.viewpager2:viewpager2:$viewPager2Version"
     implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
     implementation "androidx.activity:activity-ktx:$activityKtxVersion"
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
     implementation 'androidx.test.espresso:espresso-idling-resource:3.4.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     //testing

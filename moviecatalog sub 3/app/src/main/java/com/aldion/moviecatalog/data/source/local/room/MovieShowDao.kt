@@ -13,22 +13,23 @@ interface MovieShowDao {
     fun insertMoviesShows(movieShows: List<ShowEntity>)
 
     @Query("SELECT * FROM movieShowEntities where category = 'movie'")
-    fun getMovies(): DataSource.Factory<Int,ShowEntity>
+    fun getMovies(): DataSource.Factory<Int, ShowEntity>
+
     @Query("SELECT * FROM movieShowEntities where category = 'tv'")
-    fun getShows(): DataSource.Factory<Int,ShowEntity>
+    fun getShows(): DataSource.Factory<Int, ShowEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertMovieDetail(movie:DetailEntity)
+    fun insertMovieDetail(movie: DetailEntity)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertShowDetail(show:DetailEntity)
+    fun insertShowDetail(show: DetailEntity)
 
     @Transaction
     @Query("SELECT * FROM detailEntities WHERE detailId = :movieShowId")
     fun getMovieShowDetail(movieShowId: Int): LiveData<DetailEntity>
 
     @Query("SELECT * FROM movieShowEntities where bookmarked = 1")
-    fun getBookmarkedMovieShow(): DataSource.Factory<Int,ShowEntity>
+    fun getBookmarkedMovieShow(): DataSource.Factory<Int, ShowEntity>
 
     @Update
     fun updateMovieShow(movieShow: ShowEntity)

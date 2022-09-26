@@ -7,8 +7,10 @@ import androidx.room.RoomDatabase
 import com.aldion.moviecatalog.data.source.local.entity.DetailEntity
 import com.aldion.moviecatalog.data.source.local.entity.ShowEntity
 
-@Database(entities = [ShowEntity::class, DetailEntity::class],
-    version = 1, exportSchema = false)
+@Database(
+    entities = [ShowEntity::class, DetailEntity::class],
+    version = 1, exportSchema = false
+)
 abstract class MovieShowDatabase : RoomDatabase() {
     abstract fun movieShowDao(): MovieShowDao
 
